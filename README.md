@@ -1,7 +1,7 @@
 # Dialog-based interactive image retrieval 
 
 ## About this repository
-This repository contains an implementation of the models introduced in the paper [Dialog-based Interactive Image Retrieval](https://papers.nips.cc/paper/7348-dialog-based-interactive-image-retrieval.pdf). The model taks an image and a graph proposal as input and predicts the object and relationship categories in the graph. The network  is implemented using [PyTorch](https://pytorch.org/) and the rest of the framework is in Python. The user model is built directly on top of [ImageCaptioning.pytorch](https://github.com/ruotianluo/ImageCaptioning.pytorch). 
+This repository contains an implementation of the models introduced in the paper [Dialog-based Interactive Image Retrieval](https://papers.nips.cc/paper/7348-dialog-based-interactive-image-retrieval.pdf). The network  is implemented using [PyTorch](https://pytorch.org/) and the rest of the framework is in Python. The user model is built directly on top of [ImageCaptioning.pytorch](https://github.com/ruotianluo/ImageCaptioning.pytorch). 
 
 ## Citing this work
 If you find this work useful in your research, please consider citing:
