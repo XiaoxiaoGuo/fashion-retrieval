@@ -16,7 +16,7 @@ class NetSynUser(nn.Module):
         self.bn2 = nn.BatchNorm1d(num_features=hid_dim * 2)
         self.cnn_txt = torch.nn.Conv1d(in_channels=1, out_channels=hid_dim * 2, kernel_size=(2, hid_dim*2), bias=True)
         self.fc_txt = nn.Linear(in_features=hid_dim * 2, out_features=hid_dim, bias=False)
-        self.img_linear = nn.Linear(in_features=256, out_features=hid_dim, bias=True)
+        self.img_linear = nn.Linear(in_features=hid_dim, out_features=hid_dim, bias=True)
 
         self.fc_joint = nn.Linear(in_features=hid_dim, out_features=hid_dim, bias=False)
         self.rnn = nn.GRUCell(hid_dim, hid_dim, bias=False)
