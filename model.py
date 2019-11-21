@@ -9,13 +9,12 @@ class NetSynUser(nn.Module):
     def __init__(self, num_emb):
         super(NetSynUser, self).__init__()
         hid_dim = 256
-        txt_len = 16
         self.hid_dim = hid_dim
         self.rep_dim = hid_dim
 
         self.emb_txt = torch.nn.Embedding(num_embeddings=num_emb, embedding_dim=hid_dim * 2 )
         self.bn2 = nn.BatchNorm1d(num_features=hid_dim * 2)
-        self.cnn_txt = torch.nn.Conv1d(txt_len, hid_dim * 2, 2, bias=True)
+        self.cnn_txt = torch.nn.Conv1d(in_channels=1, out_channels=hid_dim * 2, kernel_size=(2, hid_dim*2), bias=True)
         self.fc_txt = nn.Linear(in_features=hid_dim * 2, out_features=hid_dim, bias=False)
         self.img_linear = nn.Linear(in_features=256, out_features=hid_dim, bias=True)
 
@@ -39,7 +38,7 @@ class NetSynUser(nn.Module):
         return self.img_linear(image_input)
 
     def forward_text(self, text_input):
-        x = self.emb_txt(text_input)
+        x = self.emb_txt(text_input).unsqueeze(1)
         x = self.cnn_txt(x)
         x, _ = torch.max(x, dim=2)
         x = x.squeeze()
