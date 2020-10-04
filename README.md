@@ -30,7 +30,7 @@ The  dataset used in the paper is built on the [Attribute Discovery Dataset](htt
 
 
 ## Train and evaluate a model
-Follow the following steps to train a model:
+Follow the steps to train a model:
 1. Prepare following [dataset instructions](dataset/) or download the pre-computed image features and user captioning model from [here](https://ibm.box.com/s/a1zml3pyx4v8yblvy48oyjt1vsbjbkrk).
 2. Move the pre-computed image features into [features folder](features/) and the user captioning model into [caption_models folder](caption_models/). 
 3. Edit the training script `experiments/scripts/train.sh` such that all paths agree with the files on your file system.
